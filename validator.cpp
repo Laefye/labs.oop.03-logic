@@ -5,7 +5,7 @@ Validator::Validator(const std::string& expression) {
 }
 
 bool Validator::hasCharacterInNumber(std::size_t begin, char character) {
-    for (std::size_t i = begin - 1; i >= 0 && operators.find(expression[i]) == std::string::npos && brackets.find(expression[i]) == std::string::npos; i--)
+    for (std::size_t i = begin - 1; i >= 0 && i < expression.length() && operators.find(expression[i]) == std::string::npos && brackets.find(expression[i]) == std::string::npos; i--)
     {
         if (expression[i] == character) {
             return true;
