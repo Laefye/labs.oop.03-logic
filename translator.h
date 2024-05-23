@@ -13,5 +13,5 @@ private:
 public:
     Translator(const std::string& input);
 
-    void translate();
+    std::string translate();
 };

@@ -7,6 +7,12 @@ OperatorCreator::OperatorCreator() {
     operators['-'] = []() {
         return new Minus();
     };
+    operators['*'] = []() {
+        return new Multiply();
+    };
+    operators['/'] = []() {
+        return new Divide();
+    };
 }
 
 Operator* OperatorCreator::create(char character) {

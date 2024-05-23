@@ -11,12 +11,14 @@ std::string Translator::join(std::vector<std::string>& parts) {
     for (std::size_t i = 0; i < parts.size(); i++)
     {
         result += parts[i];
-        result += ' ';
+        if (i != parts.size() - 1) {
+            result += ' ';
+        }
     }
     return result;
 }
 
-void Translator::translate() {
+std::string Translator::translate() {
     OperatorCreator operatorCreator;
     std::vector<std::string> output;
     std::vector<std::string> stack;
@@ -46,11 +48,13 @@ void Translator::translate() {
                 output.push_back(*stack.rbegin());
                 stack.erase(stack.begin() + (stack.size() - 1));
                 stack.push_back(std::string{input[i]});
+            } else {
+                stack.push_back(std::string{input[i]});
             }
         }
     }
-    for (std::string& part : stack) {
-        output.push_back(part);
+    for (auto iter = stack.rbegin(); iter != stack.rend(); iter++) {
+        output.push_back(*iter);
     }
-    std::cout << join(output) << std::endl;
+    return join(output);
 }

@@ -2,11 +2,12 @@
 #include <functional>
 #include <vector>
 #include <map>
-#include <memory>
 #include "exceptions/unknownoperatorexception.h"
 #include "operator.h"
 #include "add.h"
 #include "minus.h"
+#include "divide.h"
+#include "multiply.h"
 
 class OperatorCreator {
 private:
