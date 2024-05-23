@@ -1,11 +1,12 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "contstants.h"
 
 class Translator {
 private:
-    const std::string digits = "0123456789.";
-    const std::string brackets = "()";
+    const std::string digits = FORNUMBER;
+    const std::string brackets = BRACKETS;
 
     std::string input;
     

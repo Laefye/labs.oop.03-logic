@@ -1,13 +1,15 @@
 #pragma once
 #include <string>
 #include "exceptions/invalidexpressionexception.h"
+#include "contstants.h"
+
 
 class Validator {
 private:
-    const std::string digits = "0123456789";
-    const char point = '.';
-    const std::string operators = "+-/*"; 
-    const std::string brackets = "()";
+    const std::string digits = DIGITS;
+    const char point = POINT;
+    const std::string operators = OPERATORS; 
+    const std::string brackets = BRACKETS;
 
     std::string expression;
 
