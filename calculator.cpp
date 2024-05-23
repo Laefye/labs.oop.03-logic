@@ -36,5 +36,9 @@ std::string Calculator::calculate() {
             stack.push_back(std::stold(part));
         }
     }
-    return std::to_string(stack.empty() ? 0 : stack[0]);
+    std::string result = std::to_string(stack.empty() ? 0 : stack[0]);
+    if (result.find(',') != std::string::npos) {
+        result[result.find(',')] = '.';
+    }
+    return result;
 }
