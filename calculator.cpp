@@ -25,7 +25,7 @@ std::string Calculator::calculate() {
         try
         {
             Operator* op = operatorCreator.create(part[0]);
-            double value = op->execute(*stack.rbegin(), *(++stack.rbegin()));            
+            double value = op->execute(*(++stack.rbegin()), *stack.rbegin());          
             delete op;
             stack.erase(stack.begin() + (stack.size() - 1));
             stack.erase(stack.begin() + (stack.size() - 1));
