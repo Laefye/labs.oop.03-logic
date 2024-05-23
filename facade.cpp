@@ -8,6 +8,6 @@ std::string Facade::calculate(const std::string& expression) {
     validator.validate();
     Translator translator(expression);
     std::string rpn = translator.translate();
-    Calculator calculator(expression);
+    Calculator calculator(rpn);
     return calculator.calculate();
 }
