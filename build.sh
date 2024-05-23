@@ -9,7 +9,8 @@ clang++ -Wall -I./ -c operators/divide.cpp -o operators/divide.o
 clang++ -Wall -I./ -c validator.cpp -o validator.o 
 clang++ -Wall -I./ -c translator.cpp -o translator.o 
 clang++ -Wall -I./ -c calculator.cpp -o calculator.o 
+clang++ -Wall -I./ -c facade.cpp -o facade.o 
 
 clang++ -Wall -I./ -c main.cpp
-clang++ main.o operators/operatorcreator.o operators/add.o operators/minus.o operators/multiply.o operators/divide.o validator.o translator.o calculator.o -o calculator
+clang++ main.o operators/operatorcreator.o operators/add.o operators/minus.o operators/multiply.o operators/divide.o validator.o translator.o calculator.o facade.o -o calculator
 ./calculator

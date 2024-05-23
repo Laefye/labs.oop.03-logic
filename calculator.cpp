@@ -16,7 +16,7 @@ void Calculator::split(std::vector<std::string>& parts) {
     parts.push_back(expression);
 }
 
-double Calculator::calculate() {
+std::string Calculator::calculate() {
     OperatorCreator operatorCreator;
     std::vector<std::string> parts;
     split(parts);
@@ -36,5 +36,5 @@ double Calculator::calculate() {
             stack.push_back(std::stold(part));
         }
     }
-    return stack.empty() ? 0 : stack[0];
+    return std::to_string(stack.empty() ? 0 : stack[0]);
 }

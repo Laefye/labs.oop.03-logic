@@ -1,9 +1,6 @@
 #include <iostream>
-#include "translator.h"
-#include "calculator.h"
+#include "facade.h"
 
 int main() {
-    Translator translator("3+4*2/(1-5)");
-    Calculator calculator(translator.translate());
-    std::cout << calculator.calculate() << std::endl;
+    std::cout << Facade().calculate("3+4*2/(1-5)") << std::endl;
 }

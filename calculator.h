@@ -11,5 +11,5 @@ private:
 public:
     Calculator(const std::string& expression);
 
-    double calculate();
+    std::string calculate();
 };
