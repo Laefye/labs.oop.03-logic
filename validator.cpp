@@ -1,4 +1,5 @@
 #include "validator.h"
+#include  <iostream>
 
 Validator::Validator(const std::string& expression) {
     this->expression = expression;
@@ -23,13 +24,15 @@ void Validator::validate() {
         if ((pos = digits.find(character)) != std::string::npos) {
             continue;
         } else if ((pos = operators.find(character)) != std::string::npos) {
-            if (i == 0 || operators.find(expression[i - 1]) != std::string::npos || brackets.find(expression[i - 1]) != std::string::npos) {
+            if ((i == 0 || expression[i - 1] == '(') && expression[i] == '-') {
+                continue;
+            } if (i == 0 || operators.find(expression[i - 1]) != std::string::npos || expression[i - 1] == '(') {
                 throw InvalidExpressionException();
             }
         } else if ((pos = brackets.find(character)) != std::string::npos) {
-            if (pos == 0 && digits.find(expression[i - 1]) != std::string::npos) {
+            if (i > 0 && pos == 0 && digits.find(expression[i - 1]) != std::string::npos) {
                 throw InvalidExpressionException();
-            } else if (pos == 1 && operators.find(expression[i - 1]) != std::string::npos) {
+            } else if (i > 0 && pos == 1 && operators.find(expression[i - 1]) != std::string::npos) {
                 throw InvalidExpressionException();
             }
             deep += pos == 0 ? 1 : -1;

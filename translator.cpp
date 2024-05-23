@@ -25,7 +25,7 @@ std::string Translator::translate() {
     bool makeNumber = true;
     for (std::size_t i = 0; i < input.length(); i++)
     {
-        if (digits.find(input[i]) != std::string::npos && makeNumber) {
+        if ((digits.find(input[i]) != std::string::npos || input[i] == '-') && makeNumber) {
             makeNumber = false;
             output.push_back(std::string{input[i]});
         } else if (digits.find(input[i]) != std::string::npos) {
